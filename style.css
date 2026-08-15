@@ -1,0 +1,231 @@
+/* 
+  OpsAI — Premium Enterprise UI Design System
+  Theme: Unique Professional Dark & Light / Pure White Mode
+*/
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* LIGHT / PURE WHITE THEME TOKENS */
+  --bg-app: #F8FAFC;
+  --bg-sidebar: #0F172A;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FAFAFA;
+  --bg-subtle: #F1F5F9;
+  --bg-elevated: #FFFFFF;
+  
+  --text-main: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  
+  --border-main: #E2E8F0;
+  --border-subtle: #F1F5F9;
+  --border-focus: #6366F1;
+  
+  --primary: #4F46E5;
+  --primary-hover: #4338CA;
+  --primary-light: #EEF2FF;
+  --primary-glow: rgba(79, 70, 229, 0.15);
+  
+  --pass: #059669;
+  --pass-bg: #ECFDF5;
+  --pass-border: #A7F3D0;
+  
+  --fail: #DC2626;
+  --fail-bg: #FEF2F2;
+  --fail-border: #FECACA;
+  
+  --warning: #D97706;
+  --warning-bg: #FFFBEB;
+  --warning-border: #FDE68A;
+  
+  --shadow-card: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+  --shadow-hover: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-modal: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+}
+
+.dark-mode {
+  /* DARK OBSIDIAN THEME TOKENS */
+  --bg-app: #0B0F19;
+  --bg-sidebar: #030712;
+  --bg-card: #111827;
+  --bg-card-hover: #1F2937;
+  --bg-subtle: #1F2937;
+  --bg-elevated: #1F2937;
+  
+  --text-main: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+  
+  --border-main: #1F2937;
+  --border-subtle: #374151;
+  --border-focus: #818CF8;
+  
+  --primary: #6366F1;
+  --primary-hover: #4F46E5;
+  --primary-light: #1E1B4B;
+  --primary-glow: rgba(99, 102, 241, 0.25);
+  
+  --pass: #10B981;
+  --pass-bg: #064E3B;
+  --pass-border: #047857;
+  
+  --fail: #F87171;
+  --fail-bg: #7F1D1D;
+  --fail-border: #991B1B;
+  
+  --warning: #FBBF24;
+  --warning-bg: #78350F;
+  --warning-border: #92400E;
+  
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+/* Global Font & Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-font-smoothing: antialiased;
+}
+
+code, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Elevated Card Base */
+.pro-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-main);
+  border-radius: 0.875rem; /* 14px */
+  box-shadow: var(--shadow-card);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pro-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Custom Nav Item Active Styling */
+.nav-item {
+  position: relative;
+  transition: all 0.2s ease;
+  border-radius: 0.5rem;
+}
+
+.nav-item.active {
+  background: linear-gradient(90deg, rgba(79, 70, 229, 0.18) 0%, rgba(79, 70, 229, 0.05) 100%);
+  color: #818CF8 !important;
+  font-weight: 700;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  bottom: 15%;
+  width: 3.5px;
+  background-color: #6366F1;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 8px #6366F1;
+}
+
+/* Page View Animation */
+.page-view {
+  display: none;
+}
+
+.page-view.active {
+  display: block;
+  animation: pageSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Theme Toggle Pill Button */
+.theme-pill-btn {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-main);
+  border-radius: 9999px;
+  padding: 0.25rem 0.6rem;
+  display: flex;
+  items-center: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-pill-btn:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Pulse Glowing Indicator */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 4px var(--pass);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 12px var(--pass);
+    transform: scale(1.15);
+  }
+}
+
+.glow-pulse {
+  animation: glowPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Drop Zone Hover Styling */
+.drop-zone {
+  border: 2px dashed var(--border-main);
+  background-color: var(--bg-app);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.drop-zone:hover, .drop-zone.dragover {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: #374151;
+}
+
+/* Modal Backdrop Blur */
+.modal-backdrop {
+  background-color: rgba(11, 15, 25, 0.75);
+  backdrop-filter: blur(8px);
+}

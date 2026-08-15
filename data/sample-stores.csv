@@ -1,0 +1,4 @@
+store_id,store_name,region,status
+S001,Store A,North,Active
+S002,Store B,South,Active
+S003,Store C,West,Active
